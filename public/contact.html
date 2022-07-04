@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tutorial Home</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+        $(function(){
+            if($.cookie("username")==undefined){
+                location.href = "login.html";
+            } else {
+                $("#user").html($.cookie("username"));
+            }
+            $("#signout").click(function(){
+                $.removeCookie("username");
+                location.href="login.html";
+            })
+        })
+    </script>
+</head>
+<body>
+    <h2>Contacts | <span id="user"></span></h2>
+    <button id="signout">Signout</button>
+    <ol>
+        <li>Contact 1: 978462555</li>
+    </ol>
+    <a href="tutorial.html">Go to tutorial</a>
+</body>
+</html>
